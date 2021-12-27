@@ -1,5 +1,4 @@
 {
   "defaultCommandTimeout": 6000,
-  "pageLoadTimeout": 15000,
-  "projectId": "84fmue"
+  "pageLoadTimeout": 15000
 }
