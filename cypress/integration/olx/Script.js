@@ -1,4 +1,4 @@
-describe('Find the toast message', function() {
+describe('olx task', function() {
    let minimumAmount = 40000
    let maximumAmount = 120000
    
