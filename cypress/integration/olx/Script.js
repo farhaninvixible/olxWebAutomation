@@ -4,6 +4,7 @@ describe('olx task', function() {
    
   it('https://www.OLX.com/', function() {
 
+  let i = 0
    
      cy.visit('https://www.olx.com.pk/')
      cy.get('img[class ="b5cfbf0b"]').click()
@@ -11,11 +12,18 @@ describe('olx task', function() {
      cy.get('input[placeholder="Min"]').invoke('val', minimumAmount)
      cy.get('input[placeholder="Max"]').invoke('val', maximumAmount)
 
-     
-     for(let i = 0 ; i<10 ;  i++){
-      cy.get('span[class="_7978e49c _2e82a662"]').eq(i)
+     while (i<20){
+        
+      cy.get('div [class="_52497c97"]').eq(i).children().invoke('text')
+      .then((text) => +text.replace(',','').trim().replace('Rs','').trim())
+      .then(parseFloat)
+      .should('be.gt', minimumAmount)
+      .should('be.lt', maximumAmount)
+
+      i++
+
      }
 
-
-    })
+      
  })
+})
